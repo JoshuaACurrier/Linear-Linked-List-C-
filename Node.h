@@ -22,6 +22,8 @@ public:
 private:
     char *name;
     int data;
+    void addName(char *);
+
 };
 
 

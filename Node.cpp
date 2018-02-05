@@ -2,6 +2,7 @@
 // Created by Josh Currier on 2/4/2018.
 //
 
+#include <cstring>
 #include "Node.h"
 
 Node::Node():name(nullptr),data(0),next(nullptr)
@@ -16,7 +17,7 @@ Node::Node(char *toName):data(0),next(nullptr)
 }
 
 
-Node::Node(int todata):name(nullptr),data(todata),next(nullptr)
+Node::Node(int toData):name(nullptr),data(toData),next(nullptr)
 {
     //nothing to do here
 }
@@ -48,5 +49,14 @@ char * Node::getName()
 int Node::getData()
 {
     return data;
+}
+
+
+void Node::addName(char *toName)
+{
+    if(!toName)
+        return;
+    name = new char[strlen(toName)+1];
+    strcpy(name,toName);
 }
 
