@@ -4,25 +4,25 @@
 
 #include "Node.h"
 
-Node::Node():name(NULL),data(0),next(NULL)
+Node::Node():name(nullptr),data(0),next(nullptr)
 {
     //nothing to do here
 }
 
 
-Node::Node(char *toName):data(0),next(NULL)
+Node::Node(char *toName):data(0),next(nullptr)
 {
     addName(toName);
 }
 
 
-Node::Node(int todata):name(NULL),data(todata),next(NULL)
+Node::Node(int todata):name(nullptr),data(todata),next(nullptr)
 {
     //nothing to do here
 }
 
 
-Node::Node(char *toName, int toData):data(toData),next(NULL)
+Node::Node(char *toName, int toData):data(toData),next(nullptr)
 {
     addName(toName);
 }
@@ -34,6 +34,8 @@ Node::~Node()
     {
         delete [](name);
     }
+
+    name = nullptr;
 }
 
 
@@ -48,8 +50,3 @@ int Node::getData()
     return data;
 }
 
-
-Node * Node::getNext()
-{
-    return next;
-}

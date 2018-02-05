@@ -3,7 +3,7 @@
 
 int main() {
 
-    List *test = new List();
+    auto *test = new List();
     bool flag = true;
     int userNum;
     char addName[100];

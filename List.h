@@ -15,7 +15,6 @@ public:
     bool addNode(char *,int);
     bool findName(char *);//if the name exists in the linear linked list this will return true
     bool findData(int);//if the data exists in the linear linked list this will return true
-    int countData(int);//returns the number of times the data appears into the LLL
     bool delName(char *);//deletes the first instance of the name, returns false if no value is found
     int delNameAll(char *);//deletes all instances that match the name, returns the number deleted
     bool delData(int);//deletes the first instance of matching data, returns false if no value is found
@@ -28,7 +27,6 @@ public:
 private:
     Node *head;
     bool recAddNode(char *,int,Node *&);//adds a new node to the end of the LLL
-    int recCountData(int,Node *);
     bool recFindName(char *,Node *);
     bool recFindData(int ,Node *);
     bool recAddNew(Node *,Node *&);//adds a new node to the end of the LLL

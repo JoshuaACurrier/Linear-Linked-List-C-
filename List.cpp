@@ -5,16 +5,16 @@
 #include <cstring>
 #include "List.h"
 
-List::List():head(NULL)
+List::List():head(nullptr)
 {
     //nothing to do here
 }
 
 
-List::List(char *toName,int toData):head(NULL)
+List::List(char *toName,int toData):head(nullptr)
 {
     bool flag;
-    Node *toAdd = new Node(toName,toData);
+    auto *toAdd = new Node(toName,toData);
 
 
     flag = recAddNew(toAdd,head);
@@ -30,6 +30,9 @@ List::~List()
 {
     if(head)
         recDelAll(head);
+
+    head = nullptr;
+
 }
 
 
@@ -45,12 +48,6 @@ bool List::findName(char *findName)
 bool List::findData(int findData)
 {
     return recFindData(findData,head);
-}
-
-
-int List::countData(int findData)
-{
-    return recCountData(findData,head);
 }
 
 
@@ -99,7 +96,7 @@ int List::countList()
 bool List::recAddNode(char *addName, int addData, Node *&current)
 {
     Node *toAdd;
-    bool flag = false;
+    bool flag;
     if(!current)
     {
         toAdd = new Node(addName,addData);
@@ -116,26 +113,9 @@ bool List::recAddNode(char *addName, int addData, Node *&current)
 }
 
 
-int List::recCountData(int countData, Node *current)
-{
-    int count = 0;
-    if(!current)
-        return 0;
-
-    count = recCountData(countData,current->next);
-
-    if(countData == current->getData())
-        count++;
-
-    return count;
-
-
-}
-
-
 bool List::recAddNew(Node *toNode, Node *&current)
 {
-    bool flag = false;
+    bool flag;
     if(!current)
     {
         current = toNode;
@@ -151,7 +131,7 @@ bool List::recAddNew(Node *toNode, Node *&current)
 
 bool List::recFindData(int findData, Node *current)
 {
-    bool flag = false;
+    bool flag;
     if(!current)
         return false;
 
@@ -170,7 +150,7 @@ bool List::recFindData(int findData, Node *current)
 
 bool List::recFindName(char *findName, Node *current)
 {
-    bool flag = false;
+    bool flag;
     if(!current)
         return false;
 
