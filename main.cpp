@@ -8,6 +8,7 @@ int main() {
     int userNum;
     char addName[100];
     int addData;
+    int count;
 
     do{
         std::cout << "1 - Add a new node" << std::endl;
@@ -40,9 +41,9 @@ int main() {
                 test->displayAll();
                 break;
             case 3:
-            std::cout << "Enter the name you are looking for: ";
-            std::cin.get(addName,100,'\n');
-            std::cin.ignore(100,'\n');
+                std::cout << "Enter the name you are looking for: ";
+                std::cin.get(addName,100,'\n');
+                std::cin.ignore(100,'\n');
                 flag = test->findName(addName);
                 if(!flag)
                 {
@@ -54,25 +55,70 @@ int main() {
                 }
                 break;
             case 4:
-                
+                std::cout << "Enter the data you are looking for: ";
+                std::cin >> addData;
+                std::cin.ignore(100,'\n');
+                flag = test->findData(addData);
+                if(!flag)
+                {
+                    std::cout << addData << " was not found in the list." << std::endl;
+                    flag = true;
+                }
+                else
+                {
+                    std::cout << addData << " is in the list!" << std::endl;
+                }
                 break;
             case 5:
-
+                std::cout << "Enter the name you want to delete: ";
+                std::cin.get(addName,100,'\n');
+                std::cin.ignore(100,'\n');
+                flag = test->delName(addName);
+                if(!flag)
+                {
+                    std::cout << addName << " was not found in the list" << std::endl;
+                    flag = true;
+                } else
+                {
+                    std::cout << addName << " has been deleted!" << std::endl;
+                }
                 break;
             case 6:
-
+                std::cout << "Enter the data you want to delete: ";
+                std::cin >> addData;
+                std::cin.ignore(100,'\n');
+                flag = test->delData(addData);
+                if(!flag)
+                {
+                    std::cout << addData << " was not found in the list." << std::endl;
+                    flag = true;
+                }
+                else
+                {
+                    std::cout << addData << " has been removed from the list!" << std::endl;
+                }
                 break;
             case 7:
-
+                std::cout << "Enter the name you want to delete: ";
+                std::cin.get(addName,100,'\n');
+                std::cin.ignore(100,'\n');
+                count = test->delNameAll(addName);
+                std::cout << addName << " was removed from the list " << count << " times." << std::endl;
                 break;
             case 8:
-
+                std::cout << "Enter the data you want to delete: ";
+                std::cin >> addData;
+                std::cin.ignore(100,'\n');
+                count = test->delDataAll(addData);
+                std::cout << addData << " was removed from the list " << count << " times." << std::endl;
                 break;
             case 9:
-
+                count = test->countList();
+                std::cout << "The list contains " << count << " nodes." << std::endl;
                 break;
             case 0:
-
+                std::cout << "Exiting the Program" << std::endl;
+                flag = false;
                 break;
             default:
                 std::cout << "This is not a valid selection." << std::endl;
@@ -80,6 +126,9 @@ int main() {
         }
     }while(flag);
 
+    std::cout << "Deleting the List Class" << std::endl;
+    delete test;
+    std::cout << "List class has been deleted." << std::endl;
 
     return 0;
 }
