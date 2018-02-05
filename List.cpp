@@ -36,6 +36,12 @@ List::~List()
 }
 
 
+bool List::addNode(char *toAdd, int toData)
+{
+    return recAddNode(toAdd,toData,head);
+}
+
+
 bool List::findName(char *findName)
 {
     if(!findName)//if the name is null
