@@ -11,8 +11,8 @@
 class Node {
 public:
     Node();
-    Node(char *);
-    Node(int );
+    explicit Node(char *);
+    explicit Node(int );
     Node(char *, int);
     ~Node();
     char * getName();
@@ -22,8 +22,6 @@ public:
 private:
     char *name;
     int data;
-    void addName(char *);
-
 };
 
 
